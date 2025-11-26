@@ -1,4 +1,4 @@
-<!DOCTYPE html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,17 +10,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
 
+  <style>
     .logo {
       display: block;
       justify-content: center;
       margin: 6rem 0 5rem 0;
     }
 
-    .logo img {
-      width: 6rem;
-    }
+    .logo img { width: 6rem; }
 
     .main-title {
       text-align: center;
@@ -30,22 +28,10 @@
       align-items: center;
     }
 
-    .main-title p {
-      margin: 0;
-      font-size: 23px;
-    }
-
-    .main-title p:first-child {
-      color: white;
-    }
-
-    .main-title p:nth-child(2) {
-      color:white;
-    }
-
-    .main-title p:last-child {
-      color: yellow;
-    }
+    .main-title p { margin: 0; font-size: 23px; }
+    .main-title p:first-child { color: white; }
+    .main-title p:nth-child(2) { color:white; }
+    .main-title p:last-child { color: yellow; }
 
     .whatsapp {
       margin: 1rem 0 1rem 0;
@@ -55,35 +41,33 @@
       flex-direction: column;
     }
 
-.button {
-    padding: 0.8em 1.5em;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-family: "Jugabet", sans-serif;
-    font-size: 19px;
-    background: linear-gradient(113.27deg, #5428b4 15.04%, #b339e2 84.96%);
-    border-radius: 10px;
-    color: white;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
-    box-shadow:
-    0 0 20px rgba(255, 215, 0, 0.8),
-    inset 0 0 10px rgba(255, 215, 0, 0.6);
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    animation: pulse 1.2s infinite;
-    border: 2px solid #ffd700;
-}
+    .button {
+      padding: 0.8em 1.5em;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-family: "Jugabet", sans-serif;
+      font-size: 19px;
+      background: linear-gradient(113.27deg, #5428b4 15.04%, #b339e2 84.96%);
+      border-radius: 10px;
+      color: white;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+      box-shadow:
+      0 0 20px rgba(255, 215, 0, 0.8),
+      inset 0 0 10px rgba(255, 215, 0, 0.6);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      animation: pulse 1.2s infinite;
+      border: 2px solid #ffd700;
+    }
 
-.button:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 0 35px rgba(144, 238, 144, 1),
-                0 0 15px rgba(144, 238, 144, 1) inset;
-}
+    .button:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 35px rgba(144, 238, 144, 1),
+                  0 0 15px rgba(144, 238, 144, 1) inset;
+    }
 
-.button img {
-  width: 30px;
-}
+    .button img { width: 30px; filter: none; }
 
     .info {
       display: flex;
@@ -93,21 +77,14 @@
       color: yellow;
     }
 
-    .info p {
-      font-size: 20px;
-    }
+    .info p { font-size: 20px; }
+    .info h3 { font-size: 30px; text-align: center; }
 
-    .info h3 {
-      font-size: 30px;
-      text-align: center;
-    }
-
-    /* ===== CONTADOR FIJO ===== */
-
+    /* ---------- CONTADOR FIJO ----------- */
     #live-counter {
       position: fixed;
       right: 15px;
-      bottom: 35px; /* MÁS ABAJO PARA QUE NO CHOQUE CON POPUPS */
+      bottom: 40px; /* MÁS ABAJO */
       z-index: 99999;
       background: rgba(0,0,0,0.65);
       backdrop-filter: blur(6px);
@@ -123,15 +100,24 @@
       user-select: none;
     }
 
+    #live-counter .dot {
+      width: 10px;
+      height: 10px;
+      background: #00ff00;
+      border-radius: 50%;
+      animation: blink 1s infinite alternate;
+      box-shadow: 0 0 6px #00ff00;
+    }
+
+    @keyframes blink {
+      from { opacity: 1; }
+      to { opacity: 0.2; }
+    }
+
     #live-counter .count {
       font-size: 22px;
       font-weight: 700;
       color: #00ff9d;
-    }
-
-    #live-counter .label {
-      font-size: 12px;
-      opacity: 0.9;
     }
 
     .count.pop {
@@ -139,16 +125,20 @@
       transition: transform 200ms ease-out;
     }
 
+    #live-counter .label {
+      font-size: 12px;
+      opacity: 0.9;
+    }
   </style>
-  
+
 </head>
 <body>
 
-<!-- Popup Section -->
+<!-- POPUPS -->
 <div class="popup-container">
   <div class="popup">
     <div class="popup-thumbnail">
-      <img src="img/logogates.png" class="game-thumbnail">
+      <img src="img/logogates.png" alt="Game Thumbnail" class="game-thumbnail">
     </div>
     <div class="popup-text">
       <p><span class="winner-text">🏆A esta hora ya más de 150 ganaron🏆</span></p>
@@ -157,21 +147,25 @@
 
   <div class="popup">
     <img src="img/Jokers Jewels_.webp" class="game-thumbnail">
-    <div class="popup-text"><p><span class="winner-text">🃏S****56 ganó 250.000 en Joker Jewels🃏</span></p></div>
+    <div class="popup-text">
+      <p><span class="winner-text">🃏S****56 ganó 250.000 en Joker Jewels🃏</span></p>
+    </div>
   </div>
 
   <div class="popup">
     <img src="img/logo2-c278d031d225408df6a042a77bf74384.png" class="game-thumbnail">
-    <div class="popup-text"><p><span class="winner-text">🍭C****23 se llevó 75.000 en Sweet Bonanza🍭</span></p></div>
+    <div class="popup-text">
+      <p><span class="winner-text">🍭C****23 se llevó 75.000 en Sweet Bonanza🍭</span></p>
+    </div>
   </div>
 
   <div class="popup">
     <img src="img/buffalologo.png" class="game-thumbnail">
-    <div class="popup-text"><p><span class="winner-text">🎉R**9 hizo su primer giro y ganó 20.000🎉</span></p></div>
+    <div class="popup-text">
+      <p><span class="winner-text">🎉R**9 hizo su primer giro en Buffalo King y ganó 20.000🎉</span></p>
+    </div>
   </div>
 </div>
-
-<div class="background-image"></div>
 
 <div class="content">
   <div class="logo">
@@ -183,16 +177,15 @@
     <p>Preferidos en ganamos y saca ventaja con</p>
     <p>bonos del 50%</p>
   </div>
-  
+
   <div class="whatsapp">
-    <button class="button" id="whatsappButton">
-      ¡Crea tu usuario!
-      <img src="img/WhatsApp.svg.webp" alt="Whatsapp">
+    <button class="button" id="whatsappButton">¡Crea tu usuario!
+      <img src="img/WhatsApp.svg.webp">
     </button>
   </div>
 
   <div class="info">
-    <p>Mínimo de carga: $ 2000</p>
+    <p>Mínimo de carga: $ 2000 </p>
     <h3>
       RULETA EN VIVO - SLOTS <br>
       APUESTAS DEPORTIVAS <br>
@@ -201,8 +194,15 @@
   </div>
 </div>
 
-<!-- SCRIPT POPUPS -->
+<!-- CONTADOR EN VIVO -->
+<div id="live-counter">
+  <div class="dot"></div>
+  <span class="count" id="counterNumber">--</span>
+  <span class="label">personas ahora mismo</span>
+</div>
+
 <script>
+/* WHATSAPP */
 document.getElementById("whatsappButton").addEventListener("click", function() {
   var telefono = "5491126288653";
   var mensaje = "¡Buenas! Me gustaría crear un usuario. ¿Me pueden ayudar?";
@@ -215,6 +215,7 @@ document.getElementById("whatsappButton").addEventListener("click", function() {
   window.open(link, '_blank');
 });
 
+/* POPUPS */
 const popups = document.querySelectorAll('.popup');
 let currentPopup = 0;
 
@@ -237,28 +238,14 @@ function showNextPopup() {
 }
 
 popups.forEach((popup, index) => {
-  if (index === 0) {
-    popup.style.display = 'flex';
-    popup.classList.add('show');
-  } else {
-    popup.style.display = 'none';
-  }
+  popup.style.display = index === 0 ? 'flex' : 'none';
 });
 
 setInterval(showNextPopup, 3200);
-</script>
 
-<!-- ===== CONTADOR REALISTA ===== -->
-
-<div id="live-counter">
-  <span class="count" id="counterNumber">--</span>
-  <span class="label">personas ahora mismo</span>
-</div>
-
-<script>
+/* CONTADOR EN VIVO */
 (function () {
-
-  const MIN = 6;
+  const MIN = 7;
   const MAX = 17;
   const BASE = 9;
   const SPEED_MIN = 1500;
@@ -312,7 +299,6 @@ setInterval(showNextPopup, 3200);
 
   el.textContent = fmt(current);
   setTimeout(update, 1200);
-
 })();
 </script>
 
