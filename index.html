@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,9 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Estilos para el campo de entrada de nombre */
 
-    /* Resto de estilos permanecen iguales */
     .logo {
       display: block;
       justify-content: center;
@@ -53,8 +51,8 @@
       margin: 1rem 0 1rem 0;
       display: flex;
       justify-content: center;
-      align-items: center; /* Centra verticalmente */
-      flex-direction: column; /* Alinea los elementos verticalmente */
+      align-items: center;
+      flex-direction: column;
     }
 
 .button {
@@ -69,7 +67,7 @@
     color: white;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
     box-shadow:
-    0 0 20px rgba(255, 215, 0, 0.8),   /* resplandor externo dorado */
+    0 0 20px rgba(255, 215, 0, 0.8),
     inset 0 0 10px rgba(255, 215, 0, 0.6);
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -79,13 +77,12 @@
 
 .button:hover {
     transform: translateY(-4px);
-    box-shadow: 0 0 35px rgba(144, 238, 144, 1), 
-                0 0 15px rgba(144, 238, 144, 1) inset; /* Sombra verde claro */
+    box-shadow: 0 0 35px rgba(144, 238, 144, 1),
+                0 0 15px rgba(144, 238, 144, 1) inset;
 }
 
 .button img {
   width: 30px;
-  filter: none; /* Eliminar filtro */
 }
 
     .info {
@@ -104,96 +101,124 @@
       font-size: 30px;
       text-align: center;
     }
+
+    /* ===== CONTADOR FIJO ===== */
+
+    #live-counter {
+      position: fixed;
+      right: 15px;
+      bottom: 35px; /* MÁS ABAJO PARA QUE NO CHOQUE CON POPUPS */
+      z-index: 99999;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(6px);
+      border: 2px solid #ffd700;
+      padding: 10px 15px;
+      border-radius: 12px;
+      color: white;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 0 18px rgba(0,0,0,0.4);
+      user-select: none;
+    }
+
+    #live-counter .count {
+      font-size: 22px;
+      font-weight: 700;
+      color: #00ff9d;
+    }
+
+    #live-counter .label {
+      font-size: 12px;
+      opacity: 0.9;
+    }
+
+    .count.pop {
+      transform: scale(1.15);
+      transition: transform 200ms ease-out;
+    }
+
   </style>
   
 </head>
 <body>
+
 <!-- Popup Section -->
 <div class="popup-container">
-  <!-- Primer Popup -->
   <div class="popup">
     <div class="popup-thumbnail">
-      <img src="img/logogates.png" alt="Game Thumbnail" class="game-thumbnail">
+      <img src="img/logogates.png" class="game-thumbnail">
     </div>
     <div class="popup-text">
-      <p>
-        <span class="winner-text">🏆A esta hora ya más de 150 ganaron🏆</span>
-      </p>
+      <p><span class="winner-text">🏆A esta hora ya más de 150 ganaron🏆</span></p>
     </div>
   </div>
 
-  <!-- Segundo Popup -->
   <div class="popup">
-    <img src="img/Jokers Jewels_.webp" alt="Game Thumbnail" class="game-thumbnail">
-    <div class="popup-text">
-      <p><span class="winner-text">🃏S****56 ganó 250.000 en Joker Jewels🃏</span></p>
-    </div>
+    <img src="img/Jokers Jewels_.webp" class="game-thumbnail">
+    <div class="popup-text"><p><span class="winner-text">🃏S****56 ganó 250.000 en Joker Jewels🃏</span></p></div>
   </div>
 
-  <!-- Tercer Popup -->
   <div class="popup">
-    <img src="img/logo2-c278d031d225408df6a042a77bf74384.png" alt="Game Thumbnail" class="game-thumbnail">
-    <div class="popup-text">
-      <p><span class="winner-text">🍭C****23 se llevó 75.000 en Sweet Bonanza🍭</span></p>
-    </div>
+    <img src="img/logo2-c278d031d225408df6a042a77bf74384.png" class="game-thumbnail">
+    <div class="popup-text"><p><span class="winner-text">🍭C****23 se llevó 75.000 en Sweet Bonanza🍭</span></p></div>
   </div>
 
-  <!-- Cuarto Popup -->
   <div class="popup">
-    <img src="img/buffalologo.png" alt="Game Thumbnail" class="game-thumbnail">
-    <div class="popup-text">
-      <p><span class="winner-text">🎉R**9 hizo su primer giro en buffalo king y ganó 20.000🎉</span></p>
-    </div>
+    <img src="img/buffalologo.png" class="game-thumbnail">
+    <div class="popup-text"><p><span class="winner-text">🎉R**9 hizo su primer giro y ganó 20.000🎉</span></p></div>
   </div>
 </div>
-    
-  <div class="background-image"></div>
-    <div class="content">
-    <div class="logo">
-      <img src="img/logo-net-mc.png" alt="Red24k">
-    </div>
-    <div class="main-title">
-      <p>Probá tus juegos</p>
-      <p>Preferidos en ganamos y saca ventaja con</p>
-      <p>bonos del 50%</p>
-    </div>
-    
-    <div class="whatsapp">
-      <button class="button" id="whatsappButton">
-        ¡Crea tu usuario!
-        <img src="img/WhatsApp.svg.webp" alt="Whatsapp">
-      </button>
-    </div>
-  
-    <div class="info">
-      <p>Mínimo de carga: $ 2000 </p>
-      <h3>
-        RULETA EN VIVO - SLOTS <br>
-        APUESTAS DEPORTIVAS <br>
-        Y MUCHO MÁS
-      </h3>
-    </div>
+
+<div class="background-image"></div>
+
+<div class="content">
+  <div class="logo">
+    <img src="img/logo-net-mc.png" alt="Red24k">
   </div>
-  <script>
-        document.getElementById("whatsappButton").addEventListener("click", function() {
+
+  <div class="main-title">
+    <p>Probá tus juegos</p>
+    <p>Preferidos en ganamos y saca ventaja con</p>
+    <p>bonos del 50%</p>
+  </div>
+  
+  <div class="whatsapp">
+    <button class="button" id="whatsappButton">
+      ¡Crea tu usuario!
+      <img src="img/WhatsApp.svg.webp" alt="Whatsapp">
+    </button>
+  </div>
+
+  <div class="info">
+    <p>Mínimo de carga: $ 2000</p>
+    <h3>
+      RULETA EN VIVO - SLOTS <br>
+      APUESTAS DEPORTIVAS <br>
+      Y MUCHO MÁS
+    </h3>
+  </div>
+</div>
+
+<!-- SCRIPT POPUPS -->
+<script>
+document.getElementById("whatsappButton").addEventListener("click", function() {
   var telefono = "5491126288653";
   var mensaje = "¡Buenas! Me gustaría crear un usuario. ¿Me pueden ayudar?";
   var link = "https://wa.me/" + telefono + "?text=" + encodeURIComponent(mensaje);
 
-  // Activar evento del píxel de Meta
   if (typeof fbq === "function") {
     fbq("track", "Subscribe", { content_name: "WhatsApp Subscription" });
   }
 
-  // Abrir WhatsApp en nueva pestaña
   window.open(link, '_blank');
 });
-// Seleccionar los popups
+
 const popups = document.querySelectorAll('.popup');
 let currentPopup = 0;
 
 function showNextPopup() {
-  // Ocultar el popup actual
   const current = popups[currentPopup];
   current.classList.remove('show');
   current.classList.add('fade-out');
@@ -202,18 +227,15 @@ function showNextPopup() {
     current.classList.remove('fade-out');
     current.style.display = 'none';
 
-    // Mostrar el siguiente popup
     currentPopup = (currentPopup + 1) % popups.length;
     const next = popups[currentPopup];
     next.style.display = 'flex';
     next.classList.add('fade-in', 'show');
 
-    // Quitar animación de entrada después de mostrar
     setTimeout(() => next.classList.remove('fade-in'), 500);
-  }, 500); // Duración de la animación de salida
+  }, 500);
 }
 
-// Inicializar los popups
 popups.forEach((popup, index) => {
   if (index === 0) {
     popup.style.display = 'flex';
@@ -223,45 +245,10 @@ popups.forEach((popup, index) => {
   }
 });
 
-// Iniciar el loop
-setInterval(showNextPopup, 3200); // Cambiar cada 3 segundos
-  </<!-- CONTADOR EN VIVO FIJO -->
-<style>
-  #live-counter {
-    position: fixed;
-    right: 15px;
-    bottom: 15px;
-    z-index: 99999;
-    background: rgba(0,0,0,0.65);
-    backdrop-filter: blur(6px);
-    border: 2px solid #ffd700;
-    padding: 10px 15px;
-    border-radius: 12px;
-    color: white;
-    font-family: 'Inter', sans-serif;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    box-shadow: 0 0 18px rgba(0,0,0,0.4);
-    user-select: none;
-  }
+setInterval(showNextPopup, 3200);
+</script>
 
-  #live-counter .count {
-    font-size: 22px;
-    font-weight: 700;
-    color: #00ff9d;
-  }
-
-  #live-counter .label {
-    font-size: 12px;
-    opacity: 0.9;
-  }
-
-  .count.pop {
-    transform: scale(1.15);
-    transition: transform 200ms ease-out;
-  }
-</style>
+<!-- ===== CONTADOR REALISTA ===== -->
 
 <div id="live-counter">
   <span class="count" id="counterNumber">--</span>
@@ -271,10 +258,9 @@ setInterval(showNextPopup, 3200); // Cambiar cada 3 segundos
 <script>
 (function () {
 
-  // CONFIG
-  const MIN = 80;      // mínimo realista
-  const MAX = 350;     // máximo realista
-  const BASE = 150;    // valor inicial aprox
+  const MIN = 80;
+  const MAX = 350;
+  const BASE = 150;
   const SPEED_MIN = 1500;
   const SPEED_MAX = 3800;
 
@@ -311,7 +297,7 @@ setInterval(showNextPopup, 3200); // Cambiar cada 3 segundos
   }
 
   function update(){
-    let change = Math.floor(Math.random() * 6 - 2); 
+    let change = Math.floor(Math.random() * 6 - 2);
     if(Math.random() < 0.2) change += Math.floor(Math.random()*10);
 
     let target = current + change;
@@ -329,6 +315,6 @@ setInterval(showNextPopup, 3200); // Cambiar cada 3 segundos
 
 })();
 </script>
-  
+
 </body>
 </html>
